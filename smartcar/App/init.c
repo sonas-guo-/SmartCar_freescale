@@ -1,4 +1,6 @@
 #include "init.h"
+#include "include.h"
+
 
 void _gpio_init()
 {
@@ -14,13 +16,40 @@ void _display_init()
    LCD_Init(); 
 }
 
+void variable_init()
+{
+    memset(&pid,NULL,sizeof(pid));
+    pid.P=10;
+    pid.D=0;
+
+}
+
 void _init()
 {
    _gpio_init(); 
    _display_init();
-   adc_init(ADC0_SE16);//y
-   adc_init(ADC1_DM0);//x
+
+    FTM_PWM_init(FTM0,FTM_CH0,20*1000,0);
+    FTM_PWM_init(FTM0,FTM_CH1,20*1000,0);
+    FTM_PWM_init(FTM0,FTM_CH2,20*1000,0);
+    FTM_PWM_init(FTM0,FTM_CH3,20*1000,0);
+    
+    gpio_init(PTB1,GPO,1);
+    gpio_init(PTB2,GPO,1);
+  
+  
+   // FTM_QUAD_Init(FTM1);
+   // FTM_QUAD_Init(FTM2);
+    
+    pit_init_ms(PIT0,5);
+    set_vector_handler(PIT0_VECTORn,PIT0_IRQHandler);
+    enable_irq(PIT0_IRQn);
+
+
+
    adc_init(ADC1_DP0);//w
    adc_init(ADC0_SE17);//z
-   adc_init(ADC0_SE18);//angle
+
+
+   variable_init();
 }

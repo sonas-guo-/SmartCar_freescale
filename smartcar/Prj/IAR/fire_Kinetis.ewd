@@ -2753,7 +2753,7 @@
         </option>
         <option>
           <name>MemFile</name>
-          <state>$TOOLKIT_DIR$\CONFIG\debugger\Freescale\MK60DN512Zxxx10.ddf</state>
+          <state></state>
         </option>
         <option>
           <name>RunToEnable</name>
@@ -3548,7 +3548,7 @@
         <option>
           <name>CCJLinkResetList</name>
           <version>6</version>
-          <state>7</state>
+          <state>5</state>
         </option>
         <option>
           <name>CCJLinkInterfaceCmdLine</name>

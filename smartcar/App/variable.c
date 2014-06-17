@@ -1,14 +1,23 @@
 #include "include.h"
 
 /*
-三轴陀螺仪输出y，z，w;
-
+全局参数
 
 */
-int zout;
+PID pid;
+
+
+int zout;//ad输出值
 int wout;
-float theta1;//加速度计算出的theta
-float theta2;//陀螺仪得出的theta
+int delta_duty=0;
+
+
+float set_theta=0;//目标theta
+float theta1=0;//加速度计算出的theta
+float theta2=0;//陀螺仪得出的theta
+
 float GravityA=9.78;
-int GravityD=800;
-int zbase=1500;
+float GravityD=800;
+float wbase=100;//基准角速度值
+float wreal;//实际所得角速度
+float zbase=1300;

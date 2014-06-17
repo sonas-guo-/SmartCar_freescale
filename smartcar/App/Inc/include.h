@@ -18,6 +18,7 @@
 #include  "MK60_rtc.h"      //RTC
 #include  "MK60_adc.h"      //ADC
 #include  "MK60_FLASH.h"    //FLASH
+#include  "MK60_it.h"       //ÖÐ¶Ï
 
 
 
