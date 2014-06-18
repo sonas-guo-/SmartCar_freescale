@@ -13,7 +13,6 @@ void main()
 
     while(1)
     {
-      //_display();
              
     }
 }

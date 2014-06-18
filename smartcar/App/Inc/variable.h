@@ -15,9 +15,10 @@ typedef struct PID
 
 extern PID pid;
 
-extern int zout;
-extern int wout;
-extern int delta_duty;
+extern unsigned int zout;
+extern unsigned int wout;
+extern int motorDeadDuty;
+extern int setDuty;
 
 extern float set_theta;
 extern float theta1;

@@ -2530,7 +2530,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>F:\code\JSW\SmartCar_freescale\smartcar\Prj\IAR\config files\fire_ROM_K60N512.icf</state>
+          <state>F:\code\SmartCar_freescale\smartcar\Prj\IAR\config files\fire_ROM_K60N512.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>

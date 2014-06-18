@@ -19,7 +19,7 @@ void _display_init()
 void variable_init()
 {
     memset(&pid,NULL,sizeof(pid));
-    pid.P=10;
+    pid.P=50;
     pid.D=0;
 
 }
@@ -29,7 +29,7 @@ void _init()
    _gpio_init(); 
    _display_init();
 
-    FTM_PWM_init(FTM0,FTM_CH0,20*1000,0);
+    FTM_PWM_init(FTM0,FTM_CH0,20*1000,4000);//ËÀÇøÕ¼¿Õ±È%7
     FTM_PWM_init(FTM0,FTM_CH1,20*1000,0);
     FTM_PWM_init(FTM0,FTM_CH2,20*1000,0);
     FTM_PWM_init(FTM0,FTM_CH3,20*1000,0);

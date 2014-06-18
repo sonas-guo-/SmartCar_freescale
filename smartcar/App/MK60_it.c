@@ -23,11 +23,11 @@
 void PIT0_IRQHandler(void)
 {
    calcAngle();
-   calcAngleByW();
-   theta2+=wreal*0.005;
+  // calcAngleByW();
+   //theta2+=wreal*0.005;
     
-   upright();
-   //_display();
+   //upright();
+   _display();
 
  
     PIT_Flag_Clear(PIT0);       //清中断标志位

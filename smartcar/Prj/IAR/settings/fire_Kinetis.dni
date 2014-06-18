@@ -20,7 +20,7 @@ Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
 [DebugChecksum]
-Checksum=105148701
+Checksum=1669046871
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -118,8 +118,9 @@ mode=0
 [Breakpoints2]
 Count=0
 [Aliases]
-A0=_ "F:\code\smartcar\Chip\src\IAR\system_MK60DZ10.c" ""
-A1=_ "F:\code\smartcar\Chip\src\MK60_wdog.c" ""
-A2=_ "F:\code\smartcar\Chip\src\misc.c" ""
-Count=3
-SuppressDialog=0
+A0=_ "F:\code\JSW\SmartCar_freescale\smartcar\App\main.c" "F:\code\SmartCar_freescale\smartcar\App\main.c"
+A1=_ "F:\code\smartcar\Chip\src\IAR\system_MK60DZ10.c" ""
+A2=_ "F:\code\smartcar\Chip\src\MK60_wdog.c" ""
+A3=_ "F:\code\smartcar\Chip\src\misc.c" ""
+Count=4
+SuppressDialog=1
