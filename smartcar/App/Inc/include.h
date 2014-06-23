@@ -19,7 +19,7 @@
 #include  "MK60_adc.h"      //ADC
 #include  "MK60_FLASH.h"    //FLASH
 #include  "MK60_it.h"       //ÖÐ¶Ï
-
+#include  "exti.h"
 
 
 #include  "FIRE_LED.H"          //LED

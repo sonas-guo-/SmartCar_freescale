@@ -6,19 +6,26 @@
 */
 PID pid;
 
+float angle=0,gyro=0;//kalman滤波之后的角度及角速度
 
 unsigned int zout;//ad输出值
 unsigned int wout;
-int motorDeadDuty=350;//电机死区占空比7%，调整精度的话数值需要改
-int setDuty=0;
+int leftMotorDeadDutyA=350,rightMotorDeadDutyA=550;
+int leftMotorDeadDutyB=570,rightMotorDeadDutyB=360;
+int leftSetDuty,rightSetDuty;
 
- 
-float set_theta=5.5;//目标theta
+
+float set_theta=12.3;//目标theta
 float theta1=0;//加速度计算出的theta
 float theta2=0;//陀螺仪得出的theta
+float theta;
+
 
 float GravityA=9.78;
-float GravityD=835;
-float wbase=100;//基准角速度值
+float GravityD=830;
+float wbase=1900;//基准角速度值
 float wreal;//实际所得角速度
-float zbase=1427;
+float zbase=2020;//小车竖直所得值
+float dt=0.005;
+
+

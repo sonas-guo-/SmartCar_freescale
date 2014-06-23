@@ -19,20 +19,25 @@ void _display_init()
 void variable_init()
 {
     memset(&pid,NULL,sizeof(pid));
-    pid.P=50;
-    pid.D=0;
+    pid.P=130;
+    pid.D=4;
+    
+    
+    calcAngle();
+    theta2=theta1;
+    angle=theta1;
 
 }
 
 void _init()
-{
-   _gpio_init(); 
-   _display_init();
-
-    FTM_PWM_init(FTM0,FTM_CH0,20*1000,4000);//ËÀÇøÕ¼¿Õ±È%7
-    FTM_PWM_init(FTM0,FTM_CH1,20*1000,0);
-    FTM_PWM_init(FTM0,FTM_CH2,20*1000,0);
-    FTM_PWM_init(FTM0,FTM_CH3,20*1000,0);
+{   
+    _gpio_init(); 
+    _display_init();
+    
+    FTM_PWM_init(FTM0,FTM_CH0,20*1000,0);//leftMotorDeadDutyA:350
+    FTM_PWM_init(FTM0,FTM_CH1,20*1000,0);//leftMotorDeadDutyB:570
+    FTM_PWM_init(FTM0,FTM_CH2,20*1000,0);//rightMotorDeadDutyA:550
+    FTM_PWM_init(FTM0,FTM_CH3,20*1000,0);//rightMotorDeadDutyB:360
     
     gpio_init(PTB1,GPO,1);
     gpio_init(PTB2,GPO,1);
@@ -47,9 +52,10 @@ void _init()
 
 
 
-   adc_init(ADC1_DP0);//w
-   adc_init(ADC0_SE17);//z
+    adc_init(ADC1_DP0);//w
+    adc_init(ADC0_SE17);//z
 
 
-   variable_init();
+
+    variable_init();
 }

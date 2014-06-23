@@ -117,7 +117,7 @@ typedef enum ADC_nbit
 //外部函数接口声明
 extern void     adc_init    (ADCn_Ch_e);                //ADC初始化
 extern uint16   adc_once    (ADCn_Ch_e, ADC_nbit);      //采集一次一路模拟量的AD值
-
+extern uint16 adc_mid(ADCn_Ch_e, ADC_nbit);
 
 extern void     adc_stop    (ADCn_e);                   //停止ADC转换
 

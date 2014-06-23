@@ -23,10 +23,11 @@
 void PIT0_IRQHandler(void)
 {
    calcAngle();
-  // calcAngleByW();
-   //theta2+=wreal*0.005;
-    
-   //upright();
+   calcAngleByW();
+   //complementFilter();
+   kalmanFilter(); 
+   //complement2Filter();
+   upright();
    _display();
 
  

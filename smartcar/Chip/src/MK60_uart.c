@@ -42,7 +42,7 @@ void uart_init (UARTn_e uratn, uint32 baud)
     case UART0:
         SIM_SCGC4 |= SIM_SCGC4_UART0_MASK;      //使能 UART0 时钟
 
-        if(UART0_RX == PTA1)
+       if(UART0_RX == PTA1)
         {
             port_init( PTA1, ALT2);             //在PTA1上使能UART0_RXD
         }

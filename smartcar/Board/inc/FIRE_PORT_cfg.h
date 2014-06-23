@@ -24,8 +24,8 @@
 #define UART0_RX    PTD6        //PTA1、PTA15、PTB16、PTD6          PTA1不要用（与Jtag冲突）
 #define UART0_TX    PTD7        //PTA2、PTA14、PTB17、PTD7          PTA2不要用（与Jtag冲突）
 
-#define UART1_RX    PTC3        //PTC3、PTE1
-#define UART1_TX    PTC4        //PTC4、PTE0
+#define UART1_RX    PTE1        //PTC3、PTE1
+#define UART1_TX    PTE0        //PTC4、PTE0
 
 #define UART2_RX    PTD2        //PTD2
 #define UART2_TX    PTD3        //PTD3
@@ -46,10 +46,10 @@
 #define FTM0_CH1    PTC2        //PTC2、PTA4
 #define FTM0_CH2    PTC3        //PTC3、PTA5
 #define FTM0_CH3    PTC4        //PTC4、PTA6
-#define FTM0_CH4    PTA7        //PTD4、PTA7
-#define FTM0_CH5    PTD5        //PTD5、PTA0            PTA0不要用（与Jtag、SWD冲突）
-#define FTM0_CH6    PTD6        //PTD6、PTA1            PTA1不要用（与Jtag冲突）
-#define FTM0_CH7    PTD7        //PTD7、PTA2            PTA2不要用（与Jtag冲突）
+//#define FTM0_CH4    PTA7        //PTD4、PTA7
+//#define FTM0_CH5    PTD5        //PTD5、PTA0            PTA0不要用（与Jtag、SWD冲突）
+//#define FTM0_CH6    PTD6        //PTD6、PTA1            PTA1不要用（与Jtag冲突）
+//#define FTM0_CH7    PTD7        //PTD7、PTA2            PTA2不要用（与Jtag冲突）
 
 
 //      模块通道    端口          可选范围              建议

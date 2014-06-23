@@ -113,7 +113,7 @@ void FTM_PWM_init(FTMn_e ftmn, FTM_CHn_e ch, uint32 freq, uint32 duty)
             }
             break;
 
-        case FTM_CH4:
+     /*   case FTM_CH4:
             if(FTM0_CH4 == PTD4)
             {
                 port_init(FTM0_CH4, ALT4);
@@ -171,7 +171,7 @@ void FTM_PWM_init(FTMn_e ftmn, FTM_CHn_e ch, uint32 freq, uint32 duty)
             {
                 ASSERT(0);                      //设置管脚有误？
             }
-            break;
+            break;*/
         default:
             return;
         }
@@ -504,7 +504,7 @@ void FTM_Input_init(FTMn_e ftmn, FTM_CHn_e ch, FTM_Input_cfg cfg)
             }
             break;
 
-        case FTM_CH4:
+       /* case FTM_CH4:
             if(FTM0_CH4 == PTD4)
             {
                 port_init(FTM0_CH4, ALT4);
@@ -562,7 +562,7 @@ void FTM_Input_init(FTMn_e ftmn, FTM_CHn_e ch, FTM_Input_cfg cfg)
             {
                 ASSERT(0);                      //设置管脚有误？
             }
-            break;
+            break;*/
         default:
             return;
         }

@@ -671,7 +671,7 @@ void Draw_BMP(byte x0,byte y0,byte x1,byte y1,byte bmp[])
 //==============================================================  
 void LCD_P6x8float(byte x,byte y,float num)
 {
-	char str[5];
+	byte str[5];
 	sprintf(str,"%.3f",num);
 	LCD_P6x8Str(x,y,str);
 }
@@ -683,7 +683,7 @@ void LCD_P6x8float(byte x,byte y,float num)
 //==============================================================
 void LCD_P6x8int(byte x,byte y,int num)
 {
-	char str[5];
+	byte str[5];
 	sprintf(str,"%d",num);
 	LCD_P6x8Str(x,y,str);
 }

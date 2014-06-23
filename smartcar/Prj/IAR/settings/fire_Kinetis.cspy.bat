@@ -19,6 +19,6 @@
 @REM 
 
 
-"E:\IAR\common\bin\cspybat" "E:\IAR\arm\bin\armproc.dll" "E:\IAR\arm\bin\armjlink.dll"  %1 --plugin "E:\IAR\arm\bin\armbat.dll" --macro "E:\IAR\arm\config\debugger\Freescale\Trace_Kxx.dmac" --backend -B "--endian=little" "--cpu=Cortex-M4" "--fpu=None" "-p" "E:\IAR\arm\CONFIG\debugger\Freescale\MK60DN512Zxxx10.ddf" "--semihosting" "--device=MK60DN512Zxxx10" "--drv_communication=USB0" "--jlink_speed=auto" "--jlink_initial_speed=32" "--jlink_reset_strategy=0,0" "--drv_catch_exceptions=0x000" "--drv_swo_clock_setup=72000000,1,2000000" 
+"E:\IAR\common\bin\cspybat" "E:\IAR\arm\bin\armproc.dll" "E:\IAR\arm\bin\armjlink.dll"  %1 --plugin "E:\IAR\arm\bin\armbat.dll" --macro "E:\IAR\arm\config\debugger\Freescale\Trace_Kxx.dmac" --backend -B "--endian=little" "--cpu=Cortex-M4" "--fpu=None" "-p" "E:\IAR\arm\CONFIG\debugger\Freescale\MK60DN512Zxxx10.ddf" "--drv_verify_download" "--semihosting" "--device=MK60DN512Zxxx10" "--drv_communication=USB0" "--jlink_speed=auto" "--jlink_initial_speed=32" "--jlink_reset_strategy=0,0" "--drv_catch_exceptions=0x000" "--drv_swo_clock_setup=72000000,1,2000000" 
 
 

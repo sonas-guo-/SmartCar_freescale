@@ -8,11 +8,9 @@
 void main()
 {
   
-    
     _init();
-
+    
     while(1)
     {
-             
     }
 }

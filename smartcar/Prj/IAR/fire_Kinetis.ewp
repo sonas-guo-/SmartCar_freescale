@@ -2060,7 +2060,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -2153,7 +2153,7 @@
         </option>
         <option>
           <name>CCOptLevel</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCOptStrategy</name>
@@ -2162,7 +2162,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -3716,6 +3716,9 @@
   <group>
     <name>Board</name>
     <file>
+      <name>$PROJ_DIR$\..\..\Board\inc\DMA_OV7620.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\Board\src\FIRE_key.c</name>
     </file>
     <file>
@@ -3739,9 +3742,15 @@
     <file>
       <name>$PROJ_DIR$\..\..\Board\src\OLED12864.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\Board\inc\sccb.h</name>
+    </file>
   </group>
   <group>
     <name>board_header</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\Board\src\DMA_OV7620.c</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\..\..\Board\inc\FIRE_key.h</name>
     </file>
@@ -3763,11 +3772,17 @@
     <file>
       <name>$PROJ_DIR$\..\..\Board\inc\oled12864.h</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\Board\src\sccb.c</name>
+    </file>
   </group>
   <group>
     <name>Chip</name>
     <file>
       <name>$PROJ_DIR$\..\..\Chip\src\delay.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\Chip\src\exti.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\Chip\src\misc.c</name>
@@ -3831,6 +3846,9 @@
     <name>chip_header</name>
     <file>
       <name>$PROJ_DIR$\..\..\Chip\inc\delay.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\Chip\inc\exti.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\Chip\inc\misc.h</name>

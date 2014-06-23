@@ -20,18 +20,35 @@ Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
 [DebugChecksum]
-Checksum=1669046871
+Checksum=2001541794
 [CallStack]
 ShowArgs=0
 [Disassembly]
 MixedMode=1
+[SWOTraceHWSettings]
+OverrideDefaultClocks=0
+CpuClock=72000000
+ClockAutoDetect=1
+ClockWanted=6000000
+JtagSpeed=6000000
+Prescaler=12
+TimeStampPrescIndex=0
+TimeStampPrescData=0
+PcSampCYCTAP=1
+PcSampPOSTCNT=15
+PcSampIndex=0
+DataLogMode=0
+ITMportsEnable=0
+ITMportsTermIO=0
+ITMportsLogFile=0
+ITMlogFile=$PROJ_DIR$\ITM.log
 [PowerLog]
 LogEnabled=0
 GraphEnabled=0
 ShowTimeLog=1
 ShowTimeSum=0
 Title0=I0
-Symbol0=0 4 192
+Symbol0=0 4 1
 LiveEnabled=0
 LiveFile=PowerLogLive.log
 [DataLog]
@@ -74,23 +91,6 @@ EventEXC=0
 EventFOLD=0
 EventLSU=0
 EventSLEEP=0
-[SWOTraceHWSettings]
-OverrideDefaultClocks=0
-CpuClock=72000000
-ClockAutoDetect=0
-ClockWanted=2000000
-JtagSpeed=2000000
-Prescaler=36
-TimeStampPrescIndex=0
-TimeStampPrescData=0
-PcSampCYCTAP=1
-PcSampPOSTCNT=15
-PcSampIndex=0
-DataLogMode=0
-ITMportsEnable=0
-ITMportsTermIO=0
-ITMportsLogFile=0
-ITMlogFile=$PROJ_DIR$\ITM.log
 [PowerProbe]
 Frequency=10000
 Probe0=I0
