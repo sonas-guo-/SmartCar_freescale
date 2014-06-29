@@ -17,9 +17,8 @@ void _display()
       
       LCD_P6x8Str(10,5,"theta1:");
       LCD_P6x8int(50,5,theta1);
-
-
-
+    
+      //delay();
 
       LCD_CLS();
 }

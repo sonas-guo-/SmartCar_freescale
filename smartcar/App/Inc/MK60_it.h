@@ -26,7 +26,27 @@
  *       #define VECTOR_003    HardFault_Handler    重新定义硬件上访中断服务函数
  */
 
+#undef  VECTOR_020
+#define VECTOR_020    DMA_CH4_Handler
+
+#undef  VECTOR_084
+#define VECTOR_084    PIT0_IRQHandler     //重新定义84号中断为PIT0_IRQHandler中断
+
+//#undef  VECTOR_085
+//#define VECTOR_085    PIT1_IRQHandler     //重新定义84号中断为PIT0_IRQHandler中断
+
+/********************************************************************************/
+#undef  VECTOR_103
+#define VECTOR_103    PORTA_IRQHandler    //重新定义103号中断为PORTA_IRQHandler中断
+
+#undef  VECTOR_104
+#define VECTOR_104    PORTB_IRQHandler    //重新定义104号中断为PORTB_IRQHandler中断  
+
+   
 void PIT0_IRQHandler(void);
+void PORTB_IRQHandler();
+void DMA_CH4_Handler(void);
+void PORTA_IRQHandler();
 
 
 

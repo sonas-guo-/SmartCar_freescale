@@ -22,13 +22,15 @@
 #include  "exti.h"
 
 
+#include  "string.h"
 #include  "FIRE_LED.H"          //LED
 #include  "FIRE_KEY.H"          //KEY
 #include  "FIRE_MMA7455.h"      //三轴加速度MMA7455
 #include  "FIRE_NRF24L0.h"      //无线模块NRF24L01+
 #include  "FIRE_RTC_count.h"    //RTC 时间转换
-#include  "oled12864.h"
-
+#include  "oled12864.h"         //oled12864的驱动
+#include  "sccb.h"              //sccb的驱动
+#include  "DMA_OV7620.h"        //
 
 
 #include "display.h"
@@ -36,7 +38,7 @@
 #include "delay.h"
 #include "variable.h"
 #include "angle.h"
-
+#include "camera.h" 
 
 
 #endif  //__INCLUDE_H__

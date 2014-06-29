@@ -4,16 +4,13 @@
 #include "include.h"
 
 
-extern void _gpio_init();
-extern void _display_init();
-extern void _init();
-
-
-
-
-
-
-
+void _gpio_init();
+void _display_init();
+void PIT_init();
+void ADC_init();
+void FTM_init();
+void variable_init();
+void FTM_init();
 
 
 #endif 

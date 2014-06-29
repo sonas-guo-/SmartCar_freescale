@@ -42,7 +42,7 @@ void start(void)
     sysinit();          // 系统初始化，设置系统频率，初始化printf端口
 
     //为了防止 main 函数 里 复用了 下载口，导致 下载失败，此处增加 按下 KEY_A 就进入死循环
-   // SRART_CHECK();
+   //SRART_CHECK();
 
     main();             // 执行用户主函数
 

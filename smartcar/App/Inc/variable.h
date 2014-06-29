@@ -1,5 +1,7 @@
 #ifndef  _VARIABLE_H_
 #define  _VARIABLE_H_
+#define V 60
+#define H 80
 
 typedef struct PID
 {
@@ -12,7 +14,7 @@ typedef struct PID
    float adjust;
 }PID;
 
-
+extern char str1[5];
 extern PID pid;
 
 
@@ -37,15 +39,14 @@ extern float dt;
 
 
 extern float angle,gyro;
-/*
-extern float Q_angle,Q_gyro,R_angle;
-extern float P[2][2];
-extern float Pdot[4];
-extern float C_0;
-extern float q_bias, angle_err, PCt_0, PCt_1, E, K_0, K_1, t_0, t_1;
-*/
 
-
+extern uint8 THRESHOLD;//ãÐÖµ
+extern uint8 V_Cnt;
+extern uint8 Is_SendPhoto;
+extern uint8 pixData[V][H];
+extern uint8 data01[V][H];
+extern uint8 leftEdge[V],rightEdge[V];
+extern byte imageBMP[V/8+1][H];
 
 
 
