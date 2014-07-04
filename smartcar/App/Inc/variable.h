@@ -14,8 +14,7 @@ typedef struct PID
    float adjust;
 }PID;
 
-extern char str1[5];
-extern PID pid;
+extern PID anglePID,kPID,bPID,leftSpeedPID,rightSpeedPID;
 
 
 extern unsigned int zout;
@@ -25,7 +24,7 @@ extern int leftMotorDeadDutyB,rightMotorDeadDutyB;
 extern int leftSetDuty,rightSetDuty;
 
 
-extern float set_theta;
+extern float setTheta;
 extern float theta1;
 extern float theta2;
 extern float theta;
@@ -38,6 +37,11 @@ extern float wreal;
 extern float dt;
 
 
+
+extern int setSpeed;
+
+
+
 extern float angle,gyro;
 
 extern uint8 THRESHOLD;//ãÐÖµ
@@ -47,8 +51,10 @@ extern uint8 pixData[V][H];
 extern uint8 data01[V][H];
 extern uint8 leftEdge[V],rightEdge[V];
 extern byte imageBMP[V/8+1][H];
-
-
+extern byte lineBMP[V/8+1][H];
+extern uint8 middle[V];
+extern uint8 validLine;
+extern uint8 lastPathWidth;
 
 
 

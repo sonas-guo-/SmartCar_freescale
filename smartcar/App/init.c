@@ -15,6 +15,23 @@ void _gpio_init()
 //电机的使能port
     gpio_init(PTB1,GPO,1);
     gpio_init(PTB2,GPO,1);
+
+//初始化按键
+    gpio_init(PTB4,GPI,1);
+    gpio_init(PTB5,GPI,1);
+    gpio_init(PTB6,GPI,1);
+    gpio_init(PTB7,GPI,1);
+    gpio_init(PTB8,GPI,1);
+//编码器
+    
+    //gpio_init(PTA8,GPI,1);
+   // gpio_init(PTA9,GPI,1);
+    //gpio_init(PTB18,GPI,1);
+    //gpio_init(PTB19,GPI,1);
+
+
+
+
 }
 /*****************************
 //初始化显示
@@ -28,10 +45,22 @@ void _display_init()
 *****************************/
 void variable_init()
 {
-    memset(&pid,NULL,sizeof(pid));
-    pid.P=360;//240
-    pid.D=7;
+    memset(&anglePID,NULL,sizeof(PID));
+    memset(&kPID,NULL,sizeof(PID));
+    memset(&bPID,NULL,sizeof(PID));
+    memset(&leftSpeedPID,NULL,sizeof(PID));
+    memset(&rightSpeedPID,NULL,sizeof(PID));
+
+    anglePID.P=360;//360
+    anglePID.D=8;   //7
     
+    leftSpeedPID.P=65;//80
+    rightSpeedPID.P=65;
+    leftSpeedPID.I=0;//5
+    rightSpeedPID.I=0;
+    leftSpeedPID.D=5;//5
+    rightSpeedPID.D=5;
+
 
     calcAngle();
     theta2=theta1;
@@ -42,12 +71,15 @@ void PIT_init()
 {
   
 
-    //FTM1,FTM2正交解码用
-    // FTM_QUAD_Init(FTM1);
-    // FTM_QUAD_Init(FTM2);
+    //FTM1,FTM2正交解码用解码用
+ 
     pit_init_ms(PIT0,5);
     set_vector_handler(PIT0_VECTORn,PIT0_IRQHandler);
     enable_irq(PIT0_IRQn);
+
+    pit_init_ms(PIT1,25);
+    set_vector_handler(PIT1_VECTORn,PIT1_IRQHandler);
+    enable_irq(PIT1_IRQn);
 
 }
 void ADC_init()
@@ -58,7 +90,8 @@ void ADC_init()
 
 void FTM_init()
 {   
-    
+    FTM_QUAD_Init(FTM1);
+    FTM_QUAD_Init(FTM2);
 
     FTM_PWM_init(FTM0,FTM_CH0,20*1000,0);//leftMotorDeadDutyA:330
     FTM_PWM_init(FTM0,FTM_CH1,20*1000,0);//leftMotorDeadDutyB:590

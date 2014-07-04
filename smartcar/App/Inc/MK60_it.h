@@ -32,8 +32,8 @@
 #undef  VECTOR_084
 #define VECTOR_084    PIT0_IRQHandler     //重新定义84号中断为PIT0_IRQHandler中断
 
-//#undef  VECTOR_085
-//#define VECTOR_085    PIT1_IRQHandler     //重新定义84号中断为PIT0_IRQHandler中断
+#undef  VECTOR_085
+#define VECTOR_085    PIT1_IRQHandler     //重新定义84号中断为PIT0_IRQHandler中断
 
 /********************************************************************************/
 #undef  VECTOR_103
@@ -48,7 +48,7 @@ void PORTB_IRQHandler();
 void DMA_CH4_Handler(void);
 void PORTA_IRQHandler();
 
-
+void PIT1_IRQHandler(void);
 
 
 

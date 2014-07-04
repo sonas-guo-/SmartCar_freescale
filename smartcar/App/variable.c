@@ -4,7 +4,7 @@
 
 
 
-PID pid;
+PID anglePID,kPID,bPID,leftSpeedPID,rightSpeedPID;
 
 
 
@@ -18,7 +18,7 @@ int leftMotorDeadDutyB=530,rightMotorDeadDutyB=370;//AB电机逆时针方向死区
 int leftSetDuty,rightSetDuty;
 
 
-float set_theta=14;//目标theta
+float setTheta=14;//目标theta 速度未开环14
 float theta1=0;//加速度计算出的theta
 float theta2=0;//陀螺仪得出的theta
 
@@ -28,7 +28,10 @@ float wbase=1900;//基准角速度值
 float wreal;//实际所得角速度
 float zbase=2020;//小车竖直所得值
 float dt=0.005;
-char str1[5];
+
+
+int setSpeed=0;
+
 
 
 
@@ -39,4 +42,8 @@ uint8 Is_SendPhoto=0;
 uint8 pixData[V][H]={0};
 uint8 data01[V][H]={0};
 byte imageBMP[V/8+1][H]={0};
+byte lineBMP[V/8+1][H]={0};
 uint8 leftEdge[V],rightEdge[V];
+uint8 middle[V];
+uint8 validLine;
+uint8 lastPathWidth;

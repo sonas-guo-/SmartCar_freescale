@@ -39,6 +39,6 @@
 #include "variable.h"
 #include "angle.h"
 #include "camera.h" 
-
+#include "motor.h"
 
 #endif  //__INCLUDE_H__

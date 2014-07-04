@@ -6,7 +6,7 @@ void calcAngle();
 void calcAngleByW();
 void kalmanFilter();
 void upright();
-void calcPID();
+void calcAnglePID();
 
 
 

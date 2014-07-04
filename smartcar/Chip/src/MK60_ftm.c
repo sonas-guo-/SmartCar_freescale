@@ -781,11 +781,11 @@ void FTM_QUAD_Init(FTMn_e ftmn)
 
         if(FTM2_QDPHB == PTA11)                  //π‹Ω≈∏¥”√
         {
-            port_init(FTM2_QDPHA, ALT6);
+            port_init(FTM2_QDPHB, ALT6);
         }
         else if(FTM2_QDPHB == PTB19)
         {
-            port_init(FTM2_QDPHA, ALT6);
+            port_init(FTM2_QDPHB, ALT6);
         }
         else
         {

@@ -29,14 +29,14 @@
 //按键端口的枚举
 typedef enum
 {
-    KEY_U,  //上
-    KEY_D,  //下
+    KEY_A,  //上
+    KEY_B,  //下
 
-    KEY_L,  //左
-    KEY_R,  //右
+    KEY_C,  //左
+    KEY_D,  //右
 
-    KEY_A,  //取消
-    KEY_B,  //选择
+    KEY_E,  //取消
+    KEY_F,  //选择
 
     KEY_START,  //开始
     KEY_STOP,   //停止
@@ -66,10 +66,10 @@ typedef struct
 void            key_init(KEY_e key);            // KEY初始化函数(key 小于 KEY_MAX 时初始化 对应端口，否则初始化全部端口)
 KEY_STATUS_e    key_check(KEY_e key);           //检测key状态（带延时消抖）
 
-
 //定时扫描按键
 uint8   get_key_msg(KEY_MSG_t *keymsg);         //获取按键消息，返回1表示有按键消息，0为无按键消息
 void    key_IRQHandler(void);                   //需要定时扫描的中断复位函数（定时时间为10ms）
+KEY_STATUS_e key_press(KEY_e key);
 
 
 #endif  //__FIRE_KEY_H__
