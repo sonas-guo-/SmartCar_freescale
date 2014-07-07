@@ -101,19 +101,17 @@ KEY_STATUS_e key_check(KEY_e key)
     }
     return KEY_UP;
 }
-/********************
 
-检测按键是否按下
-**********************/
-KEY_STATUS_e key_press(KEY_e key)
+uint8 key_press(KEY_e key)
 {
      if (key_check(key))
-        {
-           while(key_check(KEY_A)==KEY_UP);
-           return 0;
-        }
-    return 1;
+       {
+          while(key_check(key));
+          return 1;  
+       }
+    return 0;
 }
+
 
 /*********************  如下代码是实现按键定时扫描，发送消息到FIFO  ********************/
 /*

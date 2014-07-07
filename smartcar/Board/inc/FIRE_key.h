@@ -65,11 +65,11 @@ typedef struct
 
 void            key_init(KEY_e key);            // KEY初始化函数(key 小于 KEY_MAX 时初始化 对应端口，否则初始化全部端口)
 KEY_STATUS_e    key_check(KEY_e key);           //检测key状态（带延时消抖）
+uint8 key_press(KEY_e key);//检测是否按下;
 
 //定时扫描按键
 uint8   get_key_msg(KEY_MSG_t *keymsg);         //获取按键消息，返回1表示有按键消息，0为无按键消息
 void    key_IRQHandler(void);                   //需要定时扫描的中断复位函数（定时时间为10ms）
-KEY_STATUS_e key_press(KEY_e key);
 
 
 #endif  //__FIRE_KEY_H__

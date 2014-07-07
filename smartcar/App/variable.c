@@ -13,12 +13,12 @@ float angle=0,gyro=0;//kalman滤波之后的角度及角速度
 
 unsigned int zout;//ad输出值
 unsigned int wout;
-int leftMotorDeadDutyA=330,rightMotorDeadDutyA=590;//AB电机顺时针方向死区
-int leftMotorDeadDutyB=530,rightMotorDeadDutyB=370;//AB电机逆时针方向死区
+int leftMotorDeadDutyA=380,rightMotorDeadDutyA=530;//AB电机顺时针方向死区ch0 ch2
+int leftMotorDeadDutyB=600,rightMotorDeadDutyB=370;//AB电机逆时针方向死区ch1 ch3
 int leftSetDuty,rightSetDuty;
 
 
-float setTheta=14;//目标theta 速度未开环14
+float setTheta=11;//目标theta 速度未开环14
 float theta1=0;//加速度计算出的theta
 float theta2=0;//陀螺仪得出的theta
 
@@ -31,7 +31,8 @@ float dt=0.005;
 
 
 int setSpeed=0;
-
+int leftDirSpeed;
+int rightDirSpeed;
 
 
 
@@ -47,3 +48,6 @@ uint8 leftEdge[V],rightEdge[V];
 uint8 middle[V];
 uint8 validLine;
 uint8 lastPathWidth;
+
+
+float line_xi=0,line_yi=0,line_A=0,line_B=0,line_C=0,line_K=0;

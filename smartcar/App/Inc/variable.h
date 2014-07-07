@@ -39,7 +39,8 @@ extern float dt;
 
 
 extern int setSpeed;
-
+extern int leftDirSpeed;
+extern int rightDirSpeed;
 
 
 extern float angle,gyro;
@@ -56,6 +57,7 @@ extern uint8 middle[V];
 extern uint8 validLine;
 extern uint8 lastPathWidth;
 
+extern float line_xi,line_yi,line_A,line_B,line_C,line_K;
 
 
 #endif

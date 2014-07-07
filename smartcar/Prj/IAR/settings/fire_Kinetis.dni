@@ -20,9 +20,9 @@ Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
 [DebugChecksum]
-Checksum=1785337736
+Checksum=1730075685
 [CallStack]
-ShowArgs=0
+ShowArgs=1
 [Disassembly]
 MixedMode=1
 [SWOTraceHWSettings]
@@ -97,6 +97,12 @@ Probe0=I0
 ProbeSetup0=2 1 1 2 0 0
 [watch_formats]
 Fmt0={W}42:V_Cnt	3	0
+Fmt1={W}42:lastPathWidth	3	0
+Fmt2={W}42:validLine	3	0
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Count=0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -104,6 +110,13 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Aliases]
+A0=_ "F:\code\JSW\SmartCar_freescale\smartcar\App\main.c" "F:\code\SmartCar_freescale\smartcar\App\main.c"
+A1=_ "F:\code\smartcar\Chip\src\IAR\system_MK60DZ10.c" ""
+A2=_ "F:\code\smartcar\Chip\src\MK60_wdog.c" ""
+A3=_ "F:\code\smartcar\Chip\src\misc.c" ""
+Count=4
+SuppressDialog=1
 [Trace1]
 Enabled=0
 ShowSource=1
@@ -115,14 +128,3 @@ Mode=1
 Graph=0
 Symbiont=0
 Exclusions=
-[Disassemble mode]
-mode=0
-[Breakpoints2]
-Count=0
-[Aliases]
-A0=_ "F:\code\JSW\SmartCar_freescale\smartcar\App\main.c" "F:\code\SmartCar_freescale\smartcar\App\main.c"
-A1=_ "F:\code\smartcar\Chip\src\IAR\system_MK60DZ10.c" ""
-A2=_ "F:\code\smartcar\Chip\src\MK60_wdog.c" ""
-A3=_ "F:\code\smartcar\Chip\src\misc.c" ""
-Count=4
-SuppressDialog=1

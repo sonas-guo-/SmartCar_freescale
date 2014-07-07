@@ -53,8 +53,8 @@
 
 
 //      模块通道    端口          可选范围              建议
-#define FTM1_CH0    PTA12       //PTA8、PTA12、PTB0
-#define FTM1_CH1    PTA13       //PTA9、PTA13、PTB1
+#define FTM1_CH0    PTA8      //PTA8、PTA12、PTB0
+#define FTM1_CH1    PTA9      //PTA9、PTA13、PTB1
 
 //      模块通道    端口          可选范围              建议
 #define FTM2_CH0    PTB18       //PTA10、PTB18

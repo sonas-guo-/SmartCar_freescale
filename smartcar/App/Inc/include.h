@@ -22,7 +22,7 @@
 #include  "exti.h"
 
 
-#include  "string.h"
+
 #include  "FIRE_LED.H"          //LED
 #include  "FIRE_KEY.H"          //KEY
 #include  "FIRE_MMA7455.h"      //三轴加速度MMA7455

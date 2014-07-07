@@ -17,6 +17,7 @@
 #include "mk60_gpio.h"
 #include "oled12864.h"
 #include "include.h"
+#include <string.h>
 
 
 #define LCD_SCL PTD11_OUT  //K60µƒπ‹Ω≈≈‰÷√
@@ -673,8 +674,8 @@ void Draw_BMP(byte x0,byte y0,byte x1,byte y1,byte bmp[])
 //==============================================================  
 void LCD_P6x8float(byte x,byte y,float num)
 {
-        byte str[5];
-	sprintf(str,"%.1f",num);
+        char str[5];
+	sprintf(str,"%.3f",num);
 	LCD_P6x8Str(x,y,str);
 }
 //==============================================================

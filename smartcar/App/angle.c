@@ -88,14 +88,21 @@ void kalmanFilter()
 void upright()
 {
      calcAnglePID();
-     leftSetDuty=(int)anglePID.adjust-leftSpeedPID.adjust;
-     rightSetDuty=(int)anglePID.adjust-rightSpeedPID.adjust;
+     dirControl();
+     leftSetDuty=(int)anglePID.adjust+leftSpeedPID.adjust+leftDirSpeed;
+     rightSetDuty=(int)anglePID.adjust+rightSpeedPID.adjust+rightDirSpeed;
     
      if (leftSetDuty>5000)  leftSetDuty=5000;
      if (rightSetDuty>5000) rightSetDuty=5000;
      if (leftSetDuty<-5000) leftSetDuty=-5000;
      if (rightSetDuty<-5000) rightSetDuty=-5000;
-
+          
+      
+     if (angle>35||angle<-35)
+     {
+         leftSetDuty=0;rightSetDuty=0;
+     }
+  
      if (0<=leftSetDuty&&leftSetDuty<=5000)
      {
          leftSetDuty+=leftMotorDeadDutyA;
@@ -124,32 +131,6 @@ void upright()
          FTM_PWM_Duty(FTM0,FTM_CH2,0);
          FTM_PWM_Duty(FTM0,FTM_CH3,-rightSetDuty);
      }
-/*
-     if (anglePID.adjust>5000) anglePID.adjust=5000;
-     if (anglePID.adjust<-5000) anglePID.adjust=-5000;
-     if (anglePID.adjust>=0&&anglePID.adjust<=5000)
-     {
-         leftSetDuty=(int)anglePID.adjust+leftMotorDeadDutyA;
-         rightSetDuty=(int)anglePID.adjust+rightMotorDeadDutyA;
-         if (leftSetDuty>5000) leftSetDuty=5000;
-         if (rightSetDuty>5000) rightSetDuty=5000;
-         FTM_PWM_Duty(FTM0,FTM_CH0,leftSetDuty);
-         FTM_PWM_Duty(FTM0,FTM_CH1,0);
-         FTM_PWM_Duty(FTM0,FTM_CH2,rightSetDuty);
-         FTM_PWM_Duty(FTM0,FTM_CH3,0);
-     }
-     if (anglePID.adjust<=0&&anglePID.adjust>=-5000)
-     {
-         leftSetDuty=leftMotorDeadDutyB-(int)anglePID.adjust;
-         rightSetDuty=rightMotorDeadDutyB-(int)anglePID.adjust;
-         if (leftSetDuty>5000) leftSetDuty=5000;
-         if (rightSetDuty>5000) rightSetDuty=5000;
-         FTM_PWM_Duty(FTM0,FTM_CH0,0);
-         FTM_PWM_Duty(FTM0,FTM_CH1,leftSetDuty);
-         FTM_PWM_Duty(FTM0,FTM_CH2,0);
-         FTM_PWM_Duty(FTM0,FTM_CH3,rightSetDuty);
-     }
-*/
 }
 void calcAnglePID()
 {

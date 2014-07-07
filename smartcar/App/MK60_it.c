@@ -31,15 +31,21 @@ void PORTB_IRQHandler()
       //dataToBMP();
       blackFilter();//黑线滤波
       edgeTransposition();//边线转置
-      Black_rectify();//黑线矫正
+      //Black_rectify();//黑线矫正
+      validLine=getValidRow2(0);
       getMiddle();
-      calcSlope(validLine,V-1);
-      validLine=getValidRow();
+      calcSlope(0,validLine);
       dataToLine();   
-
-
+      
+    
+  
 
       V_Cnt=0;       //行采集计数清零
+      memset(leftEdge,0,sizeof(uint8)*V);
+      memset(rightEdge,0,sizeof(uint8)*V);
+      memset(middle,0,sizeof(uint8)*V);
+      memset(data01,0,sizeof(data01));
+      memset(pixData,0,sizeof(pixData));
       enable_irq(PORTA_IRQn);//使能行中断
     }
 }
@@ -75,7 +81,7 @@ void PORTA_IRQHandler()
       PORTA_ISFR |= (1<<29);                                //写1清中断标志位
 /**************用户任务**************************************************/
         
-           V_Cnt++;
+            V_Cnt++;
       
             if(V_Cnt%4== 1)//判断该行数据是否需要,根据自己需要的行数自己设定判别条件
             {
@@ -122,6 +128,7 @@ void PORTA_IRQHandler()
                         break;
                 rightEdge[V_Cnt/4]=i;
             }
+       //printf("%d\n",V_Cnt);
           
     }
 }
@@ -140,8 +147,16 @@ void PIT0_IRQHandler(void)
 
 void PIT1_IRQHandler(void)
 {
+    dirControl();
     calcSpeedPID();
-    
     PIT_Flag_Clear(PIT1);       //清中断标志位
+}
+void  setIRQPriority()
+{
+   set_irq_priority(PORTA_IRQn,0);
+   set_irq_priority(DMA4_VECTORn,1);
+   set_irq_priority(PORTB_IRQn,2);
+   set_irq_priority(PIT0_VECTORn,3);
+   set_irq_priority(PIT1_VECTORn,4);
 }
 
