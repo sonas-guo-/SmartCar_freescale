@@ -9,6 +9,7 @@
 *******************/
 void calcAngle()//
 {
+    //static int tem;
     int zNow=0;//
     float temp;
     for (int i=0;i<10;i++)
@@ -16,7 +17,6 @@ void calcAngle()//
       zNow+=adc_mid(ADC0_SE17,ADC_12bit);
     }
       zNow/=10;
-
     if (zbase-zNow>GravityD)
     temp=GravityD;
     else if (zbase-zNow<-GravityD)
@@ -35,6 +35,7 @@ gyro omega
 ************************/
 void calcAngleByW()//
 {
+    //static int tem1;
     int temp=0;
     for (int i=0;i<10;i++)
     {
@@ -46,7 +47,7 @@ void calcAngleByW()//
 }
 void kalmanFilter()
 {
-  	static  float Q_angle=0.001, Q_gyro=0.003, R_angle=0.5;//注意：dt的取值为kalman滤波器采样时间;
+  	static float Q_angle=0.001, Q_gyro=0.003, R_angle=0.5;//注意：dt的取值为kalman滤波器采样时间;
 	static float Pk[2][2] = { {1, 0 }, {0, 1 }};
 	static float Pdot[4] ={0,0,0,0};
 	static const float C_0 = 1;
@@ -88,7 +89,6 @@ void kalmanFilter()
 void upright()
 {
      calcAnglePID();
-     dirControl();
      leftSetDuty=(int)anglePID.adjust+leftSpeedPID.adjust+leftDirSpeed;
      rightSetDuty=(int)anglePID.adjust+rightSpeedPID.adjust+rightDirSpeed;
     

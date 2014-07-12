@@ -30,7 +30,7 @@
         <option>
           <name>Variant</name>
           <version>20</version>
-          <state>39</state>
+          <state>0</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -43,7 +43,7 @@
         </option>
         <option>
           <name>Input description</name>
-          <state>Automatic choice of formatter.</state>
+          <state></state>
         </option>
         <option>
           <name>Output variant</name>
@@ -52,7 +52,7 @@
         </option>
         <option>
           <name>Output description</name>
-          <state>Automatic choice of formatter.</state>
+          <state></state>
         </option>
         <option>
           <name>GOutputBinary</name>
@@ -65,21 +65,21 @@
         </option>
         <option>
           <name>OGCoreOrChip</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>2</state>
+          <state>1</state>
         </option>
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>2</state>
+          <state>1</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>Use the full configuration of the C/C++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
+          <state></state>
         </option>
         <option>
           <name>OGProductVersion</name>
@@ -87,7 +87,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.50.5.4846</state>
+          <state></state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>MK60FX512xxx15	Freescale MK60FX512xxx15</state>
+          <state></state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -107,7 +107,7 @@
         </option>
         <option>
           <name>GEndianModeBE</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>OGBufferedTerminalOutput</name>
@@ -133,17 +133,17 @@
         </option>
         <option>
           <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Full.h</state>
+          <state></state>
         </option>
         <option>
           <name>GFPUCoreSlave</name>
           <version>20</version>
-          <state>39</state>
+          <state>1</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
           <version>20</version>
-          <state>39</state>
+          <state>1</state>
         </option>
         <option>
           <name>OGUseCmsis</name>
@@ -164,10 +164,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>IAR</state>
-          <state>DEBUG</state>
-          <state>MK60DZ10</state>
-          <state>ARM_MATH_CM4</state>
+          <state></state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -280,7 +277,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>$FILE_BNAME$.o</state>
+          <state></state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -296,12 +293,7 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$\..\..\App\Inc</state>
-          <state>$PROJ_DIR$\..\..\Board\Inc</state>
-          <state>$PROJ_DIR$\..\..\Chip\inc</state>
-          <state>$PROJ_DIR$\..\..\Chip\inc\IAR</state>
-          <state>$PROJ_DIR$\..\..\Chip\inc\kinetis</state>
-          <state>$PROJ_DIR$\..\..\Lib\CMSIS\Inc</state>
+          <state></state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -530,7 +522,7 @@
         </option>
         <option>
           <name>AOutputFile</name>
-          <state>$FILE_BNAME$.o</state>
+          <state></state>
         </option>
         <option>
           <name>AMultibyteSupport</name>
@@ -634,7 +626,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>fire_Kinetis.out</state>
+          <state>###Unitialized###</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -694,11 +686,11 @@
         </option>
         <option>
           <name>IlinkIcfOverride</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>F:\code\SmartCar_freescale\smartcar\Prj\IAR\config files\fire_ROM_K60N512.icf</state>
+          <state>lnk0t.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -758,7 +750,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state>__iar_program_start</state>
+          <state></state>
         </option>
         <option>
           <name>DoFill</name>
@@ -1011,7 +1003,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.50.5.4846</state>
+          <state></state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -1057,12 +1049,12 @@
         </option>
         <option>
           <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
+          <state></state>
         </option>
         <option>
           <name>GFPUCoreSlave</name>
           <version>20</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
@@ -1201,7 +1193,7 @@
         </option>
         <option>
           <name>OutputFile</name>
-          <state>$FILE_BNAME$.o</state>
+          <state></state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1246,7 +1238,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>3</state>
+          <state>1</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -1446,7 +1438,7 @@
         </option>
         <option>
           <name>AOutputFile</name>
-          <state>$FILE_BNAME$.o</state>
+          <state></state>
         </option>
         <option>
           <name>AMultibyteSupport</name>
@@ -1550,7 +1542,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>fire_Kinetis.out</state>
+          <state>###Unitialized###</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -2538,7 +2530,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>F:\code\SmartCar_freescale\smartcar\Prj\IAR\config files\fire_ROM_K60N512.icf</state>
+          <state>F:\code\test\SmartCar_freescale\smartcar\Prj\IAR\config files\fire_ROM_K60N512.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>

@@ -29,7 +29,7 @@
 //按键端口的枚举
 typedef enum
 {
-    KEY_A,  //上
+    KEY_A=0,  //上
     KEY_B,  //下
 
     KEY_C,  //左

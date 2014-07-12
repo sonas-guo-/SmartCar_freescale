@@ -8,27 +8,42 @@
 void _gpio_init()
 {
 //oled所用到的port
-    gpio_init (PTD11,GPO , 1);
-    gpio_init (PTD12,GPO , 1);
-    gpio_init (PTD13,GPO , 1);
-    gpio_init (PTD14,GPO , 1);
+    gpio_init (PTD11,GPO , 0);
+    gpio_init (PTD12,GPO , 0);
+    gpio_init (PTD13,GPO , 0);
+    gpio_init (PTD14,GPO , 0);
 //电机的使能port
     gpio_init(PTB1,GPO,1);
     gpio_init(PTB2,GPO,1);
 
 //初始化按键
-    gpio_init(PTB4,GPI,1);
-    gpio_init(PTB5,GPI,1);
-    gpio_init(PTB6,GPI,1);
-    gpio_init(PTB7,GPI,1);
-    gpio_init(PTB8,GPI,1);
-    //key_init(KEY_A);
-    //key_init(KEY_B);
-    //key_init(KEY_C);
-    //key_init(KEY_D);
-    //key_init(KEY_E);
-  
+    gpio_init(PTB4,GPI,0);
+    gpio_init(PTB5,GPI,0);
+    gpio_init(PTB6,GPI,0);
+    gpio_init(PTB7,GPI,0);
+    gpio_init(PTB8,GPI,0);
 
+
+//摄像头输入口
+    gpio_init(PTD0,GPI,0);
+    gpio_init(PTD1,GPI,0);
+    gpio_init(PTD2,GPI,0);
+    gpio_init(PTD3,GPI,0);
+    gpio_init(PTD4,GPI,0);
+    gpio_init(PTD5,GPI,0);
+    gpio_init(PTD6,GPI,0);
+    gpio_init(PTD7,GPI,0);
+
+
+//拨码盘初始化
+    gpio_init(PTC7,GPI,0);
+    gpio_init(PTC8,GPI,0);
+    gpio_init(PTC9,GPI,0);
+    gpio_init(PTC10,GPI,0);
+    gpio_init(PTC11,GPI,0);
+    gpio_init(PTC12,GPI,0);
+    gpio_init(PTC13,GPI,0);
+    gpio_init(PTC14,GPI,0);
 }
 /*****************************
 //初始化显示
@@ -36,6 +51,39 @@ void _gpio_init()
 void _display_init()
 {
    LCD_Init(); 
+}
+/*****************************
+//选择拨码盘
+*****************************/
+void selectDial()
+{
+    if(gpio_get(PTC14))
+    {
+        gear=1; 
+        
+     }
+     else if (gpio_get(PTC13))
+     {
+        gear=2;
+
+     }else if (gpio_get(PTC12))
+     {
+        gear=3;
+
+     }else if (gpio_get(PTC11))
+     {
+        gear=4; 
+     }
+     else if (gpio_get(PTC10))
+     {
+        gear=5; 
+     }
+     else if (gpio_get(PTC9))
+     {
+        gear=6; 
+     }
+
+
 }
 /*****************************
 //初始化变量，一些全局变量已经被初始化
@@ -48,22 +96,23 @@ void variable_init()
     memset(&leftSpeedPID,NULL,sizeof(PID));
     memset(&rightSpeedPID,NULL,sizeof(PID));
 
-    anglePID.P=450;//380
-    anglePID.D=7;   //7
+    anglePID.P=600;//340
+    anglePID.D=6;   //6
     
-    leftSpeedPID.P=80;//95
-    rightSpeedPID.P=80;
+    leftSpeedPID.P=100;//85
+    rightSpeedPID.P=100;
     leftSpeedPID.I=0;//0
     rightSpeedPID.I=0;
-    leftSpeedPID.D=10;//15
+    leftSpeedPID.D=10;//6
     rightSpeedPID.D=10;
     
 
-    kPID.P=13;//10
+    kPID.P=10;//10
     kPID.D=0;
-    bPID.P=35;
+    bPID.P=32;
     bPID.D=0;
-
+//kPID.P 6 bPID.P 18 SPEED -70
+//kPID.P 6 bPID.P 25 SPEED -90
 
 
     setSpeed=0;
@@ -74,18 +123,15 @@ void variable_init()
 }
 void PIT_init()
 {
-  
 
-    //FTM1,FTM2正交解码用解码用
  
     pit_init_ms(PIT0,5);
     set_vector_handler(PIT0_VECTORn,PIT0_IRQHandler);
-    enable_irq(PIT0_IRQn);
+    //enable_irq(PIT0_IRQn);
 
-    pit_init_ms(PIT1,100);
-    set_vector_handler(PIT1_VECTORn,PIT1_IRQHandler);
-    enable_irq(PIT1_IRQn);
 
+    //pit_init_ms(PIT1,100);
+    //set_vector_handler(PIT1_VECTORn,PIT1_IRQHandler);
 }
 void ADC_init()
 {

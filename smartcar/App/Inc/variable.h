@@ -12,6 +12,7 @@ typedef struct PID
    float err1;//err[-1]
    float err2;//err[-2]
    float adjust;
+   float sumerr;
 }PID;
 
 extern PID anglePID,kPID,bPID,leftSpeedPID,rightSpeedPID;
@@ -37,7 +38,7 @@ extern float wreal;
 extern float dt;
 
 
-
+extern int runSpeed;
 extern int setSpeed;
 extern int leftDirSpeed;
 extern int rightDirSpeed;
@@ -55,9 +56,18 @@ extern byte imageBMP[V/8+1][H];
 extern byte lineBMP[V/8+1][H];
 extern uint8 middle[V];
 extern uint8 validLine;
-extern uint8 lastPathWidth;
+extern uint8 lastPathWidth[V][2];
 
 extern float line_xi,line_yi,line_A,line_B,line_C,line_K;
+
+
+extern uint8 count100ms;
+extern uint8 menu,gear;
+extern uint8 countPIT;
+//按键用到的变量
+extern uint8 option0,option1;
+extern uint8 imgFlag,dirFlag,speedFlag,runFlag,upFlag,stopLine;
+
 
 
 #endif

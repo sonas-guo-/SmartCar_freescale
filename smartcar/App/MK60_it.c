@@ -27,25 +27,7 @@ void PORTB_IRQHandler()
  //DMA通道4初始化，PTC0上升沿触发DMA传输，源地址为PTD_BYTE0_IN，目的地址为：pixData ，每次传输1Byte，传输H次后停止传输，目的地址保持不变，关闭通道CHn 硬件请求
 
       Is_SendPhoto =0;
-      memset(lineBMP,0,sizeof(lineBMP));
-      //dataToBMP();
-      blackFilter();//黑线滤波
-      edgeTransposition();//边线转置
-      //Black_rectify();//黑线矫正
-      validLine=getValidRow2(0);
-      getMiddle();
-      calcSlope(0,validLine);
-      dataToLine();   
-      
-    
-  
-
       V_Cnt=0;       //行采集计数清零
-      memset(leftEdge,0,sizeof(uint8)*V);
-      memset(rightEdge,0,sizeof(uint8)*V);
-      memset(middle,0,sizeof(uint8)*V);
-      memset(data01,0,sizeof(data01));
-      memset(pixData,0,sizeof(pixData));
       enable_irq(PORTA_IRQn);//使能行中断
     }
 }
@@ -57,17 +39,6 @@ void DMA_CH4_Handler(void)
 {
     DMA_IRQ_CLEAN(DMA_CH4);//清除通道传输中断标志位    (这样才能再次进入中断)
     DMA_DIS(DMA_CH4);//采集完H个数据后进入这个DMA中断，停止DMA传输。行中断中打开DMA传输
-
-      if (V_Cnt==V*4-1)
-         {
-              
-              Is_SendPhoto=1;
-              disable_irq(PORTA_IRQn);//关闭行中断
-              enable_irq(PORTB_IRQn);//开启场中断
-            
-  
-           //   
-         }
 
 }
 
@@ -96,7 +67,7 @@ void PORTA_IRQHandler()
                 
                 for (int i=0;i<H;i++)
                 {
-                    if (pixData[V_Cnt/4][i]>THRESHOLD)
+                    if (pixData[V_Cnt/4][i]>THRESHOLD-20)
                         data01[V_Cnt/4][i]=1;else data01[V_Cnt/4][i]=0;
  
                 } 
@@ -105,6 +76,8 @@ void PORTA_IRQHandler()
                       if (data01[V_Cnt/4][i-1]==1&&data01[V_Cnt/4][i+1]==1)
                           data01[V_Cnt/4][i]=1;
                 }
+                
+
             }
 /*****************************
 
@@ -127,8 +100,16 @@ void PORTA_IRQHandler()
                     if (data01[V_Cnt/4][i+1]==0)
                         break;
                 rightEdge[V_Cnt/4]=i;
+          
             }
        //printf("%d\n",V_Cnt);
+         if (V_Cnt==V*4-1)
+         {
+              
+              Is_SendPhoto=1;
+              //disable_irq(PORTA_IRQn);//关闭行中断
+              enable_irq(PORTB_IRQn);//开启场中断
+         }
           
     }
 }
@@ -136,27 +117,33 @@ void PORTA_IRQHandler()
 
 void PIT0_IRQHandler(void)
 {
-
+   countPIT++;
    calcAngle();
    calcAngleByW();
    kalmanFilter(); 
    upright();
-  
+   if (countPIT%5==0)
+   {
+     if (dirFlag) dirControl();
+   }
+   if (countPIT==20)
+   {    
+       if (runFlag==1&&runSpeed>setSpeed)
+       {
+           runSpeed-=4;
+       }
+       if (speedFlag)calcSpeedPID();
+       countPIT=0;
+   }
    PIT_Flag_Clear(PIT0);       //清中断标志位
-}
-
-void PIT1_IRQHandler(void)
-{
-    dirControl();
-    calcSpeedPID();
-    PIT_Flag_Clear(PIT1);       //清中断标志位
 }
 void  setIRQPriority()
 {
    set_irq_priority(PORTA_IRQn,0);
-   set_irq_priority(DMA4_VECTORn,1);
-   set_irq_priority(PORTB_IRQn,2);
+   set_irq_priority(PORTB_IRQn,1);
+   set_irq_priority(DMA4_VECTORn,2);
    set_irq_priority(PIT0_VECTORn,3);
-   set_irq_priority(PIT1_VECTORn,4);
+  // set_irq_priority(PIT1_VECTORn,4);
+
 }
 
