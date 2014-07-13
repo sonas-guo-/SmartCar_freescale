@@ -1,6 +1,6 @@
 #include "common.h"
 #include "include.h"
-int leftCount,rightCount,aveCount;
+
 void main()
 {
     _gpio_init(); 
@@ -13,11 +13,9 @@ void main()
     variable_init();
     setIRQPriority();
     selectDial();
-  
-
     while(1) 
     {
-      dynamicThreshold();
+      if (threFlag)dynamicThreshold();
       menuDisplay();
       blackFilter();//ºÚÏßÂË²¨
       edgeTransposition();//±ßÏß×ªÖÃ

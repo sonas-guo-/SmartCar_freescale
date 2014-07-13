@@ -34,7 +34,7 @@ void menu0()
                        count100ms=0;
                        runSpeed=0;
                        speedFlag=1;
-                       //runSpeed=0;
+                       runSpeed=0;
                        //setSpeed=0;
                        dirFlag=0;
                        runFlag=0;
@@ -124,12 +124,12 @@ void menu1()
       LCD_P6x8int(105,1,leftSpeedPID.D);
       LCD_P6x8Str(85,2,"kP");
       LCD_P6x8int(105,2,kPID.P);
-      LCD_P6x8Str(85,3,"kD");
-      LCD_P6x8int(105,3,kPID.D);
-      LCD_P6x8Str(85,4,"bP");
-      LCD_P6x8int(105,4,bPID.P);
-      LCD_P6x8Str(85,5,"bD");
-      LCD_P6x8int(105,5,bPID.D);
+      LCD_P6x8Str(85,3,"bP");
+      LCD_P6x8int(105,3,bPID.P);
+      LCD_P6x8Str(85,4,"TFl");
+      LCD_P6x8int(105,4,threFlag);
+      LCD_P6x8Str(85,5,"THRE");
+      LCD_P6x8int(105,5,THRESHOLD);
       LCD_P6x8Str(85,6,"dFl");
       LCD_P6x8int(105,6,dirFlag);
       LCD_P6x8Str(85,7,"sFl");
@@ -182,17 +182,6 @@ void menu1()
             {
                   if (key_press(KEY_C))
                   {
-                      kPID.D+=5;
-                  }
-                   if (key_press(KEY_D))
-                  {
-                      kPID.D-=2;
-                  }
-            }
-             else if (option1==4)
-            {
-                  if (key_press(KEY_C))
-                  {
                       bPID.P+=5;
                   }
                    if (key_press(KEY_D))
@@ -200,15 +189,22 @@ void menu1()
                       bPID.P-=2;
                   }
             }
+             else if (option1==4)
+            {
+                   if (key_press(KEY_C))
+                  {
+                      threFlag=!threFlag;
+                  }
+            }
              else if (option1==5)
             {
-                  if (key_press(KEY_C))
+                 if (key_press(KEY_C))
                   {
-                      bPID.D+=5;
+                      THRESHOLD+=5;
                   }
                    if (key_press(KEY_D))
                   {
-                      bPID.D-=2;
+                      THRESHOLD-=2;
                   }
             }
              else if (option1==6)

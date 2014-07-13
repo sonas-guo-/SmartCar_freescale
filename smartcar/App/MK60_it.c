@@ -128,9 +128,10 @@ void PIT0_IRQHandler(void)
    }
    if (countPIT==20)
    {    
-       if (runFlag==1&&runSpeed>setSpeed)
+       if (runFlag==1&&count100ms<100) count100ms++;
+       if (count100ms>=30&&runFlag==1&&runSpeed>setSpeed)
        {
-           runSpeed-=4;
+           runSpeed-=3;
        }
        if (speedFlag)calcSpeedPID();
        countPIT=0;

@@ -57,5 +57,5 @@ float line_xi=0,line_yi=0,line_A=0,line_B=0,line_C=0,line_K=0;//最小二乘法用到的
 //按键用到的变量
 uint8 menu=0,gear=0;
 uint8 option0=0,option1=0,option2=0;
-uint8 imgFlag=0,upFlag=0,dirFlag=0,speedFlag=0,runFlag=0,stopFlag=0,stopLine;
+uint8 threFlag=0,imgFlag=0,upFlag=0,dirFlag=0,speedFlag=0,runFlag=0;
 

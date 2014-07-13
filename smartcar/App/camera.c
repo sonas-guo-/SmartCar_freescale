@@ -287,6 +287,61 @@ void dynamicThreshold(void)
 	}while(T_error>T_target_error);
 }
 /*******************************
+//检测起跑线
+********************************/
+char Start_detect()
+{
+	int i,j,temp[80],Left_Start=0,Left_End=0,Right_Start=0,Right_End=0;
+	for(i=0;i<80;i++)
+	{
+		for(j=0;j<60;j++)
+		{
+			if(data01[j][i]==0)
+			{
+				temp[i]=j;
+				break;
+			}
+		}
+	}
+	if(fabs(kPID.err)>30) return 0;
+	for(i=middle[0];i<60;i++)
+	{
+		if(temp[i]<10)
+		{
+			Right_Start=i;
+			for(i=Right_Start;i<80;i++)
+			{
+				if(temp[i]>10)
+				{
+					break;
+				}
+				Right_End=i;
+			}
+			break;
+		}
+	}
+	for(i=middle[0];i>20;i--)
+	{
+		if(temp[i]<10)
+		{
+			Left_Start=i;
+			for(i=Left_Start;i>=0;i--)
+			{
+				if(temp[i]>10)
+				{
+					break;
+				}
+				Left_End=i;
+			}
+			break;
+		}
+	}
+	if((((Right_End-Right_Start)>10)&&((Right_End-Right_Start)<25))&&(((Left_Start-Left_End)>10)&&((Left_Start-Left_End)<25)))
+		return 1;
+	else return 0;
+}
+
+/*******************************
 
 SCCB 初始化
 ******************************/

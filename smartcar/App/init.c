@@ -60,15 +60,24 @@ void selectDial()
     if(gpio_get(PTC14))
     {
         gear=1; 
+        setSpeed=-55;
+        
+
         
      }
      else if (gpio_get(PTC13))
      {
         gear=2;
+        setSpeed=-50;
+        
 
      }else if (gpio_get(PTC12))
      {
         gear=3;
+        setSpeed=-60;
+        kPID.P=10;
+        leftSpeedPID.D=12;
+        rightSpeedPID.D=12;
 
      }else if (gpio_get(PTC11))
      {
@@ -96,14 +105,14 @@ void variable_init()
     memset(&leftSpeedPID,NULL,sizeof(PID));
     memset(&rightSpeedPID,NULL,sizeof(PID));
 
-    anglePID.P=600;//340
-    anglePID.D=6;   //6
+    anglePID.P=600;//
+    anglePID.D=6;   //
     
-    leftSpeedPID.P=100;//85
+    leftSpeedPID.P=100;//
     rightSpeedPID.P=100;
-    leftSpeedPID.I=0;//0
+    leftSpeedPID.I=0;//
     rightSpeedPID.I=0;
-    leftSpeedPID.D=10;//6
+    leftSpeedPID.D=10;//
     rightSpeedPID.D=10;
     
 
@@ -111,8 +120,7 @@ void variable_init()
     kPID.D=0;
     bPID.P=32;
     bPID.D=0;
-//kPID.P 6 bPID.P 18 SPEED -70
-//kPID.P 6 bPID.P 25 SPEED -90
+
 
 
     setSpeed=0;

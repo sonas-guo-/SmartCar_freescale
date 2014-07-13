@@ -66,7 +66,7 @@ extern uint8 menu,gear;
 extern uint8 countPIT;
 //按键用到的变量
 extern uint8 option0,option1;
-extern uint8 imgFlag,dirFlag,speedFlag,runFlag,upFlag,stopLine;
+extern uint8 threFlag,imgFlag,dirFlag,speedFlag,runFlag,upFlag,stopFlag;
 
 
 
